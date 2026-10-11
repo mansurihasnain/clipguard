@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "ClipGuard",
+  "version": "1.0",
+  "description": "Stops confidential company data from being pasted into public AI tools. Fully local: keywords, enforcement, and event log all live in the extension.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["shared.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ClipGuard"
+  }
+}

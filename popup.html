@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: system-ui, sans-serif; width: 380px; background: #0f172a; color: #e2e8f0; margin: 0; padding: 14px; }
+  h1 { color: #38bdf8; font-size: 1.2rem; margin: 0 0 .75rem; }
+  h2 { font-size: 1rem; margin: 0 0 .5rem; }
+  .card { background: #1e293b; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
+  input[type=text] { padding: .45rem .6rem; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #e2e8f0; width: 62%; }
+  button { padding: .45rem .8rem; border: none; border-radius: 6px; background: #38bdf8; color: #0f172a; font-weight: 600; cursor: pointer; }
+  button.danger { background: #f87171; }
+  ul { list-style: none; padding: 0; margin: .5rem 0 0; max-height: 140px; overflow: auto; }
+  li { display: flex; justify-content: space-between; align-items: center; padding: .3rem 0; border-bottom: 1px solid #334155; }
+  table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+  td, th { padding: .3rem .4rem; border-bottom: 1px solid #334155; text-align: left; vertical-align: top; }
+  .ok { color: #4ade80; } .blocked { color: #f87171; }
+  #evWrap { max-height: 180px; overflow: auto; }
+</style>
+</head>
+<body>
+<h1>🛡️ ClipGuard</h1>
+
+<div class="card">
+  <h2>Enforcement</h2>
+  <p id="enforcementState">Loading…</p>
+  <button id="toggleBtn">Toggle</button>
+</div>
+
+<div class="card">
+  <h2>Keywords</h2>
+  <input id="kwInput" type="text" placeholder='e.g. "project phoenix" or "re:\\b\\d{16}\\b"'>
+  <button id="addBtn">Add</button>
+  <ul id="kwList"></ul>
+</div>
+
+<div class="card">
+  <h2>Recent Events</h2>
+  <button class="danger" id="clearBtn">Clear log</button>
+  <div id="evWrap">
+    <table>
+      <thead><tr><th>Time</th><th>Keyword</th><th>Preview</th><th>Action</th></tr></thead>
+      <tbody id="evBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
